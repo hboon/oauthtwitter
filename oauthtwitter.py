@@ -183,6 +183,10 @@ class OAuthApi(Api):
         token = self._FetchUrl(url, no_cache=True)
         return oauth.OAuthToken.from_string(token) 
 
+    def getAccessTokenWithXAuth(self, username, password, url=ACCESS_TOKEN_URL):
+        token = self._FetchUrl(url, no_cache=True, post_data={"x_auth_username": username, "x_auth_password": password, "x_auth_mode": "client_auth"})
+        return oauth.OAuthToken.from_string(token) 
+
     def getRequestToken(self, url=REQUEST_TOKEN_URL):
         '''Get a Request Token from Twitter
         
