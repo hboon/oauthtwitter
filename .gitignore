@@ -1,0 +1,5 @@
+# OS X noise
+.DS_Store
+
+# vi swap files
+*.swp
